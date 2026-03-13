@@ -5,6 +5,28 @@
 'use strict';
 
 /* ============================================================
+   0. VIEWPORT HEIGHT
+   ============================================================ */
+(function initViewportHeight() {
+  let rafId = null;
+
+  const setViewportHeight = () => {
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(() => {
+      const height = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+      document.documentElement.style.setProperty('--viewport-h', `${Math.round(height)}px`);
+    });
+  };
+
+  setViewportHeight();
+  window.addEventListener('resize', setViewportHeight, { passive: true });
+  window.addEventListener('orientationchange', setViewportHeight, { passive: true });
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', setViewportHeight, { passive: true });
+  }
+})();
+
+/* ============================================================
    0. BOOKING MODAL
    ============================================================ */
 (function initBookingModal() {
@@ -204,7 +226,7 @@ function closeBookingModal() {
 
   // Active nav link on scroll
   const sections = document.querySelectorAll('section[id]');
-  const links    = navLinks.querySelectorAll('a[href^="#"]');
+  const links    = navLinks.querySelectorAll('.nav-link[href^="#"]');
 
   const highlightNav = () => {
     let current = '';
@@ -455,9 +477,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   const btn = document.getElementById('backToTop');
   if (!btn) return;
 
-  window.addEventListener('scroll', () => {
-    btn.classList.toggle('visible', window.scrollY > 500);
-  }, { passive: true });
+  const updateBackToTop = () => {
+    const scrollTop = window.scrollY;
+    const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    const progress = Math.min(scrollTop / scrollable, 1);
+
+    btn.classList.toggle('visible', scrollTop > 220);
+    btn.style.setProperty('--scroll-progress', `${Math.max(progress * 360, 8)}deg`);
+  };
+
+  window.addEventListener('scroll', updateBackToTop, { passive: true });
+  updateBackToTop();
 
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
