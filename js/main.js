@@ -27,47 +27,268 @@
 })();
 
 /* ============================================================
-   0. BOOKING MODAL
+   0. CUSTOM BOOKING WIZARD
    ============================================================ */
-(function initBookingModal() {
-  const modal  = document.getElementById('bookingModal');
-  if (!modal) return;
+(function initBookingWizard() {
+  const TIME_SLOTS = [
+    '9:00 AM', '10:00 AM', '11:00 AM',
+    '2:00 PM',  '3:00 PM',  '4:00 PM', '5:00 PM',
+  ];
+  const MONTH_NAMES = [
+    'January','February','March','April','May','June',
+    'July','August','September','October','November','December',
+  ];
 
-  // Show/hide iframe vs fallback based on whether Calendly loads
-  const iframe   = document.getElementById('bookingIframe');
-  const fallback = document.getElementById('calFallback');
+  const state = {
+    service: null, date: null, time: null,
+    name: '', email: '', phone: '', company: '', message: '',
+    calYear: 0, calMonth: 0,
+  };
 
-  if (iframe && fallback) {
-    // If the iframe loads successfully, hide the fallback
-    iframe.addEventListener('load', () => {
-      // Calendly returns a non-empty document even if the link is invalid,
-      // but we optimistically hide the fallback when the src is not placeholder-only
-      const src = iframe.src || '';
-      if (src && !src.endsWith('/free-consultation') || src.includes('calendly.com')) {
-        // Try to detect real Calendly — hide fallback after a short delay
-        setTimeout(() => { fallback.style.display = 'none'; }, 1200);
-      }
+  let modal = null;
+
+  function init() {
+    modal = document.getElementById('bookingModal');
+    if (!modal) return;
+
+    const now = new Date();
+    state.calYear  = now.getFullYear();
+    state.calMonth = now.getMonth();
+
+    // Service card selection
+    modal.querySelectorAll('.book-service-card').forEach(card => {
+      card.addEventListener('click', () => {
+        modal.querySelectorAll('.book-service-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        state.service = card.dataset.service;
+        document.getElementById('bookNext1').disabled = false;
+      });
+    });
+
+    // Details form live validation
+    ['bfName', 'bfEmail'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', validateDetails);
+    });
+
+    renderCalendar();
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modal && !modal.hidden) closeBookingModal();
     });
   }
 
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !modal.hidden) closeBookingModal();
-  });
+  // ---- Step navigation ----
+  window.bookGoTo = function(step) {
+    if (!modal) return;
+    if (step === 4) buildReview();
 
-  // Prevent background scroll when open
-  const preventScroll = (e) => { e.preventDefault(); };
-  window._bookingScrollHandler = preventScroll;
+    modal.querySelectorAll('.book-step').forEach(s => { s.hidden = true; });
+    const target = modal.querySelector(step === 'success' ? '#bookStepSuccess' : `#bookStep${step}`);
+    if (target) target.hidden = false;
+
+    const pct = typeof step === 'number' ? (step / 4) * 100 : 100;
+    const bar = document.getElementById('bookProgressBar');
+    if (bar) bar.style.width = pct + '%';
+
+    ['bsl1','bsl2','bsl3','bsl4'].forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.toggle('active', i + 1 === step);
+      el.classList.toggle('done',   typeof step === 'number' && i + 1 < step);
+    });
+
+    const box = modal.querySelector('.bmodal-box');
+    if (box) box.scrollTop = 0;
+  };
+
+  // ---- Calendar ----
+  function renderCalendar() {
+    const label  = document.getElementById('bookCalMonthLabel');
+    const daysEl = document.getElementById('bookCalDays');
+    if (!label || !daysEl) return;
+
+    const y = state.calYear, m = state.calMonth;
+    label.textContent = `${MONTH_NAMES[m]} ${y}`;
+
+    const today    = new Date(); today.setHours(0,0,0,0);
+    const firstDay = new Date(y, m, 1).getDay();
+    const total    = new Date(y, m + 1, 0).getDate();
+
+    let html = '';
+    for (let i = 0; i < firstDay; i++) html += '<span class="book-cal-day empty"></span>';
+    for (let d = 1; d <= total; d++) {
+      const date   = new Date(y, m, d);
+      const isPast = date < today;
+      const isSun  = date.getDay() === 0;
+      const isSel  = state.date && date.toDateString() === state.date.toDateString();
+      const off    = isPast || isSun;
+      html += `<button class="book-cal-day${off ? ' disabled' : ''}${isSel ? ' selected' : ''}"
+        ${off ? 'disabled' : `onclick="bookPickDate(${y},${m},${d})"`}
+        aria-label="${MONTH_NAMES[m]} ${d}">${d}</button>`;
+    }
+    daysEl.innerHTML = html;
+  }
+
+  window.bookCalPrev = function() {
+    const now = new Date();
+    if (state.calMonth === 0) { state.calYear--; state.calMonth = 11; }
+    else state.calMonth--;
+    if (state.calYear < now.getFullYear() ||
+       (state.calYear === now.getFullYear() && state.calMonth < now.getMonth())) {
+      state.calYear = now.getFullYear(); state.calMonth = now.getMonth();
+    }
+    renderCalendar();
+  };
+
+  window.bookCalNext = function() {
+    if (state.calMonth === 11) { state.calYear++; state.calMonth = 0; }
+    else state.calMonth++;
+    renderCalendar();
+  };
+
+  window.bookPickDate = function(y, m, d) {
+    state.date = new Date(y, m, d);
+    state.time = null;
+    renderCalendar();
+    renderSlots();
+    document.getElementById('bookSlotsWrap').hidden = false;
+    document.getElementById('bookNext2').disabled = true;
+  };
+
+  function renderSlots() {
+    const el = document.getElementById('bookSlots');
+    if (!el) return;
+    el.innerHTML = TIME_SLOTS.map(t =>
+      `<button class="book-slot${state.time === t ? ' selected' : ''}" onclick="bookPickTime('${t}')">${t}</button>`
+    ).join('');
+  }
+
+  window.bookPickTime = function(t) {
+    state.time = t;
+    renderSlots();
+    document.getElementById('bookNext2').disabled = false;
+  };
+
+  // ---- Details validation ----
+  function validateDetails() {
+    const name  = (document.getElementById('bfName')?.value  || '').trim();
+    const email = (document.getElementById('bfEmail')?.value || '').trim();
+    const btn   = document.getElementById('bookNext3');
+    const ok    = name.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (btn) btn.disabled = !ok;
+  }
+
+  // ---- Build review ----
+  function buildReview() {
+    state.name    = (document.getElementById('bfName')?.value    || '').trim();
+    state.email   = (document.getElementById('bfEmail')?.value   || '').trim();
+    state.phone   = (document.getElementById('bfPhone')?.value   || '').trim();
+    state.company = (document.getElementById('bfCompany')?.value || '').trim();
+    state.message = (document.getElementById('bfMessage')?.value || '').trim();
+
+    const dateStr = state.date
+      ? state.date.toLocaleDateString('en-KE', { weekday:'long', year:'numeric', month:'long', day:'numeric' })
+      : '';
+    const rows = [
+      ['Service', state.service],
+      ['Date',    dateStr],
+      ['Time',    state.time],
+      ['Name',    state.name],
+      ['Email',   state.email],
+      state.phone   ? ['Phone',   state.phone]   : null,
+      state.company ? ['Company', state.company] : null,
+      state.message ? ['Message', state.message] : null,
+    ].filter(Boolean);
+
+    const el = document.getElementById('bookReview');
+    if (el) el.innerHTML = rows.map(([k, v]) =>
+      `<div class="book-review-row"><span>${k}</span><strong>${v}</strong></div>`
+    ).join('');
+  }
+
+  // ---- Submit (mailto) ----
+  window.submitBooking = function() {
+    const dateStr = state.date
+      ? state.date.toLocaleDateString('en-KE', { weekday:'long', year:'numeric', month:'long', day:'numeric' })
+      : '';
+    const subject = encodeURIComponent(`Consultation Booking: ${state.service} — ${state.name}`);
+    const body = encodeURIComponent(
+      `New Booking via Adpulse Website\n` +
+      `===================================\n\n` +
+      `Service : ${state.service}\n` +
+      `Date    : ${dateStr}\n` +
+      `Time    : ${state.time}\n\n` +
+      `Name    : ${state.name}\n` +
+      `Email   : ${state.email}\n` +
+      `Phone   : ${state.phone   || 'Not provided'}\n` +
+      `Company : ${state.company || 'Not provided'}\n\n` +
+      `Message :\n${state.message || 'None'}\n\n` +
+      `---\nSent from adpulse-ltd.vercel.app`
+    );
+    window.location.href = `mailto:adpulseindustries@gmail.com?subject=${subject}&body=${body}`;
+
+    // Success screen
+    const shortDate = state.date
+      ? state.date.toLocaleDateString('en-KE', { weekday:'short', month:'short', day:'numeric' })
+      : '';
+    const detail = document.getElementById('bookSuccessDetail');
+    if (detail) {
+      detail.innerHTML =
+        `<span>📅 ${shortDate} at ${state.time}</span>` +
+        `<span>📧 Confirmation to ${state.email}</span>`;
+    }
+    bookGoTo('success');
+  };
+
+  // ---- Reset on re-open ----
+  function resetWizard() {
+    Object.assign(state, {
+      service: null, date: null, time: null,
+      name: '', email: '', phone: '', company: '', message: '',
+    });
+    const now = new Date();
+    state.calYear = now.getFullYear(); state.calMonth = now.getMonth();
+
+    if (!modal) return;
+    modal.querySelectorAll('.book-step').forEach(s => { s.hidden = true; });
+    const s1 = document.getElementById('bookStep1');
+    if (s1) s1.hidden = false;
+
+    modal.querySelectorAll('.book-service-card').forEach(c => c.classList.remove('selected'));
+    document.getElementById('bookNext1').disabled = true;
+
+    ['bfName','bfEmail','bfPhone','bfCompany','bfMessage'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.value = '';
+    });
+    document.getElementById('bookNext3').disabled = true;
+
+    renderCalendar();
+    const slotsWrap = document.getElementById('bookSlotsWrap');
+    if (slotsWrap) slotsWrap.hidden = true;
+    document.getElementById('bookNext2').disabled = true;
+
+    const bar = document.getElementById('bookProgressBar');
+    if (bar) bar.style.width = '25%';
+    ['bsl1','bsl2','bsl3','bsl4'].forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.toggle('active', i === 0);
+      el.classList.remove('done');
+    });
+  }
+  window._resetBookingWizard = resetWizard;
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();
 
 function openBookingModal() {
   const modal = document.getElementById('bookingModal');
   if (!modal) return;
+  if (window._resetBookingWizard) window._resetBookingWizard();
   modal.hidden = false;
   document.body.style.overflow = 'hidden';
-  // Restore fallback visibility each time (in case of re-open)
-  const fallback = document.getElementById('calFallback');
-  if (fallback) fallback.style.display = '';
 }
 
 function closeBookingModal() {
