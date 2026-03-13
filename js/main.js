@@ -5,6 +5,57 @@
 'use strict';
 
 /* ============================================================
+   0. BOOKING MODAL
+   ============================================================ */
+(function initBookingModal() {
+  const modal  = document.getElementById('bookingModal');
+  if (!modal) return;
+
+  // Show/hide iframe vs fallback based on whether Calendly loads
+  const iframe   = document.getElementById('bookingIframe');
+  const fallback = document.getElementById('calFallback');
+
+  if (iframe && fallback) {
+    // If the iframe loads successfully, hide the fallback
+    iframe.addEventListener('load', () => {
+      // Calendly returns a non-empty document even if the link is invalid,
+      // but we optimistically hide the fallback when the src is not placeholder-only
+      const src = iframe.src || '';
+      if (src && !src.endsWith('/free-consultation') || src.includes('calendly.com')) {
+        // Try to detect real Calendly — hide fallback after a short delay
+        setTimeout(() => { fallback.style.display = 'none'; }, 1200);
+      }
+    });
+  }
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.hidden) closeBookingModal();
+  });
+
+  // Prevent background scroll when open
+  const preventScroll = (e) => { e.preventDefault(); };
+  window._bookingScrollHandler = preventScroll;
+})();
+
+function openBookingModal() {
+  const modal = document.getElementById('bookingModal');
+  if (!modal) return;
+  modal.hidden = false;
+  document.body.style.overflow = 'hidden';
+  // Restore fallback visibility each time (in case of re-open)
+  const fallback = document.getElementById('calFallback');
+  if (fallback) fallback.style.display = '';
+}
+
+function closeBookingModal() {
+  const modal = document.getElementById('bookingModal');
+  if (!modal) return;
+  modal.hidden = true;
+  document.body.style.overflow = '';
+}
+
+/* ============================================================
    1. PARTICLE CANVAS
    ============================================================ */
 (function initParticles() {
@@ -319,18 +370,28 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = form.querySelector('button');
+    const email = form.email.value.trim();
+    const btn   = form.querySelector('button');
     btn.disabled = true;
     btn.innerHTML = 'Subscribing&hellip;';
 
-    // POST to backend API (when backend is running)
+    let apiOk = false;
+    // 1. Try the backend API first
     try {
-      await fetch('/api/newsletter', {
+      const res = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: form.email.value })
+        body: JSON.stringify({ email }),
       });
-    } catch (_) { /* silently fail if api not up */ }
+      if (res.ok) apiOk = true;
+    } catch (_) { /* api not running — fall through */ }
+
+    // 2. Fallback: open a pre-filled mailto so the subscription never silently drops
+    if (!apiOk) {
+      const subject = encodeURIComponent('Newsletter Subscription — ' + email);
+      const body    = encodeURIComponent('Please subscribe me to the Adpulse newsletter.\n\nEmail: ' + email);
+      window.open('mailto:adpulseindustries@gmail.com?subject=' + subject + '&body=' + body);
+    }
 
     form.style.display = 'none';
     success.classList.add('show');
