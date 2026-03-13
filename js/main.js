@@ -151,9 +151,10 @@ function closeBookingModal() {
    2. NAVBAR
    ============================================================ */
 (function initNavbar() {
-  const navbar   = document.getElementById('navbar');
+  const navbar    = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('navLinks');
+  const overlay   = document.getElementById('navOverlay');
 
   // Scroll: add .scrolled class
   const onScroll = () => {
@@ -162,18 +163,43 @@ function closeBookingModal() {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  // Open / close helpers
+  function openMenu() {
+    hamburger.classList.add('open');
+    navLinks.classList.add('open');
+    if (overlay) overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    hamburger.setAttribute('aria-expanded', 'true');
+  }
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+    if (overlay) overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+
   // Hamburger toggle
   hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    navLinks.classList.toggle('open');
+    hamburger.classList.contains('open') ? closeMenu() : openMenu();
   });
 
-  // Close mobile menu on link click
+  // Close on overlay click
+  if (overlay) overlay.addEventListener('click', closeMenu);
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Close on link click
   navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      navLinks.classList.remove('open');
-    });
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close menu when resizing to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMenu();
   });
 
   // Active nav link on scroll
