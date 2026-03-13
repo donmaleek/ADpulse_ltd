@@ -53,7 +53,7 @@ export default function ContactPage() {
                   { id:'name',    label:'Full Name',         type:'text',  placeholder:'John Doe',         required:true  },
                   { id:'email',   label:'Email Address',     type:'email', placeholder:'john@company.com',  required:true  },
                   { id:'company', label:'Company',           type:'text',  placeholder:'Your Company Ltd',  required:false },
-                  { id:'phone',   label:'Phone (optional)',  type:'tel',   placeholder:'+254 700 000 000',  required:false },
+                  { id:'phone',   label:'Phone (optional)',  type:'tel',   placeholder:'+254 769 968 696',  required:false },
                 ].map(f => (
                   <div key={f.id} style={{ display:'flex', flexDirection:'column', gap:8 }}>
                     <label htmlFor={f.id} style={{ fontSize:13, fontWeight:600, color:'var(--text-2)' }}>{f.label}</label>

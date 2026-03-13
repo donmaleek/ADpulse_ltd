@@ -16,7 +16,7 @@ export default function Footer() {
           {[
             { title: 'Services', links: ['Website Design','App Development','CRM Systems','Process Automation','Email Automation','ICT Support'] },
             { title: 'Company',  links: ['About Us','Our Process','Portfolio','Blog','Contact'] },
-            { title: 'Contact',  links: ['Mombasa, Kenya','info@adpulseltd.com','+254 700 000 000','Mon–Fri 8am–6pm EAT'] },
+            { title: 'Contact',  links: ['Nairobi, Kenya','adpulseindustries@gmail.com','+254 769 968 696','Mon–Fri 8am–6pm EAT'] },
           ].map(col => (
             <div key={col.title}>
               <h4 style={{ fontSize:12, fontWeight:700, letterSpacing:'0.08em', textTransform:'uppercase', color:'var(--text)', marginBottom:16 }}>

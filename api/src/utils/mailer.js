@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
  */
 async function sendMail({ to, subject, html, text }) {
   return transporter.sendMail({
-    from:    process.env.MAIL_FROM || 'Adpulse Ltd <info@adpulseltd.com>',
+    from:    process.env.MAIL_FROM || 'Adpulse Ltd <adpulseindustries@gmail.com>',
     to,
     subject,
     html,
@@ -37,9 +37,9 @@ function contactConfirmationHtml(name) {
     <h2 style="margin:0 0 12px;font-size:22px;font-weight:700">Thanks for reaching out, ${name}!</h2>
     <p style="color:#8B9DC3;line-height:1.7;margin:0 0 20px">We received your message and our team will review it promptly. You can expect a response from us within <strong style="color:#00D4FF">24 hours</strong>.</p>
     <p style="color:#8B9DC3;line-height:1.7;margin:0 0 32px">In the meantime, feel free to browse our services or drop us a WhatsApp message for urgent queries.</p>
-    <a href="https://wa.me/${process.env.COMPANY_WHATSAPP || '254700000000'}" style="display:inline-block;background:linear-gradient(135deg,#00D4FF,#00FF88);color:#060D1F;font-weight:700;padding:12px 28px;border-radius:10px;text-decoration:none">Chat on WhatsApp</a>
+    <a href="https://wa.me/${process.env.COMPANY_WHATSAPP || '254769968696'}" style="display:inline-block;background:linear-gradient(135deg,#00D4FF,#00FF88);color:#060D1F;font-weight:700;padding:12px 28px;border-radius:10px;text-decoration:none">Chat on WhatsApp</a>
     <hr style="margin:32px 0;border:none;border-top:1px solid rgba(255,255,255,0.09)">
-    <p style="color:#4A5878;font-size:13px;margin:0">Adpulse Ltd &mdash; Mombasa, Kenya &mdash; info@adpulseltd.com</p>
+    <p style="color:#4A5878;font-size:13px;margin:0">Adpulse Ltd &mdash; Nairobi, Kenya &mdash; adpulseindustries@gmail.com</p>
   </div>`;
 }
 

@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'Adpulse Ltd | IT Support & Software Automation | Kenya',
   description: 'We turn technology into your competitive edge. IT support, software automation, CRM systems, and digital transformation for businesses across Kenya and East Africa.',
-  keywords: 'IT support Kenya, software automation, web development Mombasa, CRM systems, business automation',
+  keywords: 'IT support Kenya, software automation, web development Nairobi, CRM systems, business automation',
   openGraph: {
     title: 'Adpulse Ltd | IT Support & Software Automation',
     description: 'Smart digital solutions for forward-thinking businesses in Kenya.',

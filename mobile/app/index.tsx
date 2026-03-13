@@ -95,7 +95,7 @@ export default function HomeScreen() {
         </LinearGradient>
 
         {/* WhatsApp */}
-        <TouchableOpacity style={styles.whatsapp} onPress={() => Linking.openURL('https://wa.me/254700000000?text=Hello%20Adpulse')} activeOpacity={0.85}>
+        <TouchableOpacity style={styles.whatsapp} onPress={() => Linking.openURL('https://wa.me/254769968696?text=Hello%20Adpulse')} activeOpacity={0.85}>
           <Ionicons name="logo-whatsapp" size={20} color="#fff" />
           <Text style={styles.whatsappText}>Chat with us on WhatsApp</Text>
         </TouchableOpacity>

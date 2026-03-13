@@ -39,7 +39,7 @@ router.post('/', [
           <p style="color:#8B9DC3;line-height:1.7">Welcome to the Adpulse Insider Newsletter. Every month we send practical insights on tech, automation, and digital strategy for East African businesses.</p>
           <p style="color:#8B9DC3;line-height:1.7">No spam. Unsubscribe anytime.</p>
           <hr style="margin:24px 0;border:none;border-top:1px solid rgba(255,255,255,0.09)">
-          <p style="color:#4A5878;font-size:13px;margin:0">Adpulse Ltd &mdash; Mombasa, Kenya</p>
+          <p style="color:#4A5878;font-size:13px;margin:0">Adpulse Ltd &mdash; Nairobi, Kenya</p>
         </div>`,
     }).catch(err => console.error('[MAIL]', err.message));
 

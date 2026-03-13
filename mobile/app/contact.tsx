@@ -37,15 +37,15 @@ export default function ContactScreen() {
 
         {/* Quick contact buttons */}
         <View style={s.quickRow}>
-          <TouchableOpacity style={s.quickBtn} onPress={() => Linking.openURL('https://wa.me/254700000000')} activeOpacity={0.85}>
+          <TouchableOpacity style={s.quickBtn} onPress={() => Linking.openURL('https://wa.me/254769968696')} activeOpacity={0.85}>
             <Ionicons name="logo-whatsapp" size={20} color="#25D366" />
             <Text style={s.quickText}>WhatsApp</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={s.quickBtn} onPress={() => Linking.openURL('tel:+254700000000')} activeOpacity={0.85}>
+          <TouchableOpacity style={s.quickBtn} onPress={() => Linking.openURL('tel:+254769968696')} activeOpacity={0.85}>
             <Ionicons name="call-outline" size={20} color="#00D4FF" />
             <Text style={s.quickText}>Call Us</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={s.quickBtn} onPress={() => Linking.openURL('mailto:info@adpulseltd.com')} activeOpacity={0.85}>
+          <TouchableOpacity style={s.quickBtn} onPress={() => Linking.openURL('mailto:adpulseindustries@gmail.com')} activeOpacity={0.85}>
             <Ionicons name="mail-outline" size={20} color="#7C3AED" />
             <Text style={s.quickText}>Email Us</Text>
           </TouchableOpacity>

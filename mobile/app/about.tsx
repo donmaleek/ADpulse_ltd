@@ -20,7 +20,7 @@ export default function AboutScreen() {
           <View style={s.ctoInfo}>
             <Text style={s.ctoName}>Engineer Mathias Alfred</Text>
             <Text style={s.ctoRole}>Chief Technical Officer</Text>
-            <Text style={s.ctoCompany}>Adpulse Ltd, Mombasa</Text>
+            <Text style={s.ctoCompany}>Adpulse Ltd, Nairobi</Text>
           </View>
         </LinearGradient>
 
@@ -56,10 +56,10 @@ export default function AboutScreen() {
         {/* Contact info */}
         <View style={s.contactCard}>
           {[
-            { icon:'call-outline',       text:'+254 700 000 000',      action:() => Linking.openURL('tel:+254700000000') },
-            { icon:'mail-outline',       text:'info@adpulseltd.com',   action:() => Linking.openURL('mailto:info@adpulseltd.com') },
-            { icon:'location-outline',   text:'Mombasa, Kenya',        action:null },
-            { icon:'logo-whatsapp',      text:'Chat on WhatsApp',      action:() => Linking.openURL('https://wa.me/254700000000') },
+            { icon:'call-outline',       text:'+254 769 968 696',      action:() => Linking.openURL('tel:+254769968696') },
+            { icon:'mail-outline',       text:'adpulseindustries@gmail.com',   action:() => Linking.openURL('mailto:adpulseindustries@gmail.com') },
+            { icon:'location-outline',   text:'Nairobi, Kenya',        action:null },
+            { icon:'logo-whatsapp',      text:'Chat on WhatsApp',      action:() => Linking.openURL('https://wa.me/254769968696') },
           ].map(item => (
             <TouchableOpacity key={item.text} style={s.contactRow} onPress={item.action || undefined} activeOpacity={item.action ? 0.7 : 1} disabled={!item.action}>
               <View style={s.contactIcon}><Ionicons name={item.icon as any} size={18} color="#00D4FF" /></View>
