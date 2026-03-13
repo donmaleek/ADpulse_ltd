@@ -310,7 +310,119 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 /* ============================================================
-   9. CURSOR GLOW (desktop only)
+   8b. NEWSLETTER FORM
+   ============================================================ */
+(function initNewsletter() {
+  const form    = document.getElementById('newsletterForm');
+  const success = document.getElementById('newsletterSuccess');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button');
+    btn.disabled = true;
+    btn.innerHTML = 'Subscribing&hellip;';
+
+    // POST to backend API (when backend is running)
+    try {
+      await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: form.email.value })
+      });
+    } catch (_) { /* silently fail if api not up */ }
+
+    form.style.display = 'none';
+    success.classList.add('show');
+  });
+})();
+
+/* ============================================================
+   9. FAQ ACCORDION
+   ============================================================ */
+(function initFAQ() {
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen  = btn.getAttribute('aria-expanded') === 'true';
+      const answer  = btn.nextElementSibling;
+
+      // Close all
+      document.querySelectorAll('.faq-q').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.classList.remove('open');
+      });
+
+      // Toggle current
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        answer.classList.add('open');
+      }
+    });
+  });
+})();
+
+/* ============================================================
+   10. BACK TO TOP
+   ============================================================ */
+(function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 500);
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+/* ============================================================
+   11. PAGE LOADER
+   ============================================================ */
+(function initLoader() {
+  const loader   = document.getElementById('pageLoader');
+  const progress = document.getElementById('loaderProgress');
+  if (!loader) return;
+
+  let p = 0;
+  const tick = setInterval(() => {
+    p = Math.min(p + Math.random() * 25, 90);
+    progress.style.width = p + '%';
+  }, 120);
+
+  window.addEventListener('load', () => {
+    clearInterval(tick);
+    progress.style.width = '100%';
+    setTimeout(() => loader.classList.add('hidden'), 400);
+  });
+})();
+
+/* ============================================================
+   12. HERO TYPEWRITER
+   ============================================================ */
+(function initTypewriter() {
+  const subtitle = document.querySelector('.hero-subtitle');
+  if (!subtitle) return;
+  const text = subtitle.textContent.trim();
+  subtitle.textContent = '';
+  subtitle.style.visibility = 'visible';
+  let i = 0;
+
+  // Delay to start after hero animates in
+  setTimeout(() => {
+    const type = () => {
+      if (i < text.length) {
+        subtitle.textContent += text[i++];
+        setTimeout(type, 18);
+      }
+    };
+    type();
+  }, 800);
+})();
+
+/* ============================================================
+   14. CURSOR GLOW (desktop only)
    ============================================================ */
 (function initCursorGlow() {
   if (window.matchMedia('(hover: none)').matches) return;
