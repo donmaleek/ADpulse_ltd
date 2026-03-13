@@ -995,7 +995,21 @@ button { cursor: pointer; font-family: inherit; }
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 14px;
 }
+
+.portfolio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cyan);
+  text-decoration: none;
+  transition: gap 0.2s, opacity 0.2s;
+}
+.portfolio-link:hover { gap: 10px; opacity: 0.8; }
+
 .portfolio-tech span {
   font-size: 12px;
   font-weight: 500;
