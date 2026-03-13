@@ -211,6 +211,14 @@ button { cursor: pointer; font-family: inherit; }
 .logo-text { color: var(--text); }
 .logo-accent { color: var(--cyan); }
 
+.nav-logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 6px rgba(212,170,0,0.35));
+}
+
 .nav-links {
   display: flex;
   align-items: center;
