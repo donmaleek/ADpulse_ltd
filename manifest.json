@@ -13,24 +13,9 @@
   "icons": [
     {
       "src": "/public/adpulse_Logo.png",
-      "sizes": "192x192",
+      "sizes": "any",
       "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/public/adpulse_Logo.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "/public/adpulse_Logo.png",
-      "type": "image/png",
-      "sizes": "512x512",
-      "form_factor": "wide",
-      "label": "Adpulse Industries — Home"
+      "purpose": "any"
     }
   ],
   "shortcuts": [
