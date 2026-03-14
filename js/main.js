@@ -760,7 +760,92 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 })();
 
 /* ============================================================
-   14. CURSOR GLOW (desktop only)
+   13. SCROLL PROGRESS BAR
+   ============================================================ */
+(function initScrollProgress() {
+  const bar = document.getElementById('scrollProgressBar');
+  if (!bar) return;
+  const update = () => {
+    const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    bar.style.width = Math.min((window.scrollY / scrollable) * 100, 100) + '%';
+  };
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+/* ============================================================
+   14. COOKIE CONSENT
+   ============================================================ */
+(function initCookieBanner() {
+  const banner = document.getElementById('cookieBanner');
+  if (!banner) return;
+  if (localStorage.getItem('adp_cookie_consent')) return; // already decided
+
+  // Show after 2 seconds so it doesn't clash with the page loader
+  setTimeout(() => { banner.hidden = false; }, 2000);
+
+  window.cookieAccept = function() {
+    localStorage.setItem('adp_cookie_consent', 'accepted');
+    banner.hidden = true;
+    if (typeof gtag !== 'undefined') {
+      gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'granted' });
+    }
+  };
+  window.cookieDecline = function() {
+    localStorage.setItem('adp_cookie_consent', 'declined');
+    banner.hidden = true;
+  };
+})();
+
+/* ============================================================
+   15. GA4 EVENT TRACKING
+   ============================================================ */
+(function initGA4Events() {
+  function track(event, params) {
+    if (typeof gtag !== 'undefined') gtag('event', event, params);
+  }
+
+  // Contact form submission
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', () => {
+      track('generate_lead', { event_category: 'Contact Form', event_label: 'Contact Form Submit' });
+    });
+  }
+
+  // Newsletter subscription
+  const newsletterForm = document.getElementById('newsletterForm');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', () => {
+      track('sign_up', { event_category: 'Newsletter', event_label: 'Newsletter Subscribe' });
+    });
+  }
+
+  // WhatsApp float button
+  const waFloat = document.querySelector('.whatsapp-float');
+  if (waFloat) {
+    waFloat.addEventListener('click', () => {
+      track('contact', { event_category: 'WhatsApp', event_label: 'Floating WhatsApp Click' });
+    });
+  }
+
+  // Booking modal open
+  const origOpen = window.openBookingModal;
+  window.openBookingModal = function() {
+    track('begin_checkout', { event_category: 'Booking', event_label: 'Booking Modal Opened' });
+    if (origOpen) origOpen();
+  };
+
+  // Booking submit
+  const origSubmit = window.submitBooking;
+  window.submitBooking = function() {
+    track('purchase', { event_category: 'Booking', event_label: 'Booking Submitted' });
+    if (origSubmit) origSubmit();
+  };
+})();
+
+/* ============================================================
+   16. CURSOR GLOW (desktop only)
    ============================================================ */
 (function initCursorGlow() {
   if (window.matchMedia('(hover: none)').matches) return;
