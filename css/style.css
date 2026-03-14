@@ -2605,9 +2605,15 @@ textarea { resize: vertical; min-height: 120px; }
     border-bottom: none;
     padding: 0 0 4px;
   }
-  /* Show app button in drawer, hide bar version */
-  .nav-app-item { display: block; }
-  .nav-app-btn  { display: none; }
+  /* Keep Get the App in the top bar; hide duplicate inside drawer */
+  .nav-app-item { display: none; }
+  .nav-app-btn  {
+    display: inline-flex;
+    padding: 8px 12px;
+    font-size: 12px;
+    gap: 4px;
+    flex-shrink: 0;
+  }
 
   /* Hero */
   .hero-stats { flex-direction: column; gap: 0; padding: 16px; }
@@ -2768,6 +2774,10 @@ textarea { resize: vertical; min-height: 120px; }
   /* Hamburger slightly smaller */
   .hamburger { padding: 6px; }
   .hamburger span { width: 20px; }
+
+  /* App button icon-only on very narrow screens */
+  .nav-app-btn { padding: 8px 10px; font-size: 0; gap: 0; }
+  .nav-app-btn svg { width: 18px; height: 18px; }
 
   /* Drawer width fills more of the narrow screen */
   .nav-links { width: 92vw; }

@@ -1,0 +1,45 @@
+{
+  "packageId": "com.adpulse.industries",
+  "host": "adpulse-ltd.vercel.app",
+  "name": "Adpulse Industries",
+  "launcherName": "Adpulse",
+  "display": "standalone",
+  "themeColor": "#060D1F",
+  "navigationColor": "#060D1F",
+  "navigationColorDark": "#060D1F",
+  "navigationDividerColor": "#060D1F",
+  "navigationDividerColorDark": "#060D1F",
+  "backgroundColor": "#060D1F",
+  "enableNotifications": false,
+  "startUrl": "/",
+  "iconUrl": "https://adpulse-ltd.vercel.app/public/icon-512.png",
+  "maskableIconUrl": "https://adpulse-ltd.vercel.app/public/icon-512.png",
+  "monochromeIconUrl": "https://adpulse-ltd.vercel.app/public/icon-192.png",
+  "shortcuts": [
+    {
+      "name": "Contact Us",
+      "short_name": "Contact",
+      "url": "/#contact",
+      "icons": [{ "src": "https://adpulse-ltd.vercel.app/public/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://adpulse-ltd.vercel.app/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": { "enabled": false },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "retainedBundles": [],
+  "minSdkVersion": 19,
+  "appVersion": "1",
+  "appVersionName": "1.0.0",
+  "signingKey": {
+    "path": "android.keystore",
+    "alias": "adpulse"
+  },
+  "additionalTrustedOrigins": [],
+  "orientation": "default",
+  "fingerprints": []
+}
