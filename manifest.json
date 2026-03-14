@@ -1,0 +1,48 @@
+{
+  "name": "Adpulse Industries",
+  "short_name": "Adpulse",
+  "description": "Kenya's leading IT support and software automation company. Websites, apps, CRM systems and automation for businesses across East Africa.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#060D1F",
+  "background_color": "#060D1F",
+  "lang": "en-KE",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/public/adpulse_Logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/public/adpulse_Logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/public/adpulse_Logo.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "form_factor": "wide",
+      "label": "Adpulse Industries — Home"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Contact Us",
+      "url": "/#contact",
+      "description": "Get in touch with Adpulse Industries"
+    },
+    {
+      "name": "Our Services",
+      "url": "/#services",
+      "description": "Browse our IT and automation services"
+    }
+  ]
+}

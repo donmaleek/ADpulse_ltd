@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="5 signs your business website is silently costing you clients. Learn how to diagnose the problem and fix it fast — from slow load times to poor mobile experience." />
+  <meta name="author" content="Adpulse Industries" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#060D1F" />
+  <link rel="canonical" href="https://adpulse-ltd.vercel.app/article-website" />
+  <meta property="og:title" content="5 Signs Your Business Website Is Costing You Clients" />
+  <meta property="og:description" content="A slow, outdated, or poorly-designed website is silently turning away potential customers. Here's how to diagnose and fix it." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://adpulse-ltd.vercel.app/article-website" />
+  <meta property="og:image" content="https://adpulse-ltd.vercel.app/public/adpulse_Logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="/public/adpulse_Logo.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <title>5 Signs Your Website Is Costing You Clients | Adpulse Industries</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=20260314" />
+  <link rel="stylesheet" href="css/article.css?v=20260314" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNDEQRQT6C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HNDEQRQT6C');
+  </script>
+</head>
+<body>
+  <a href="#article-content" class="skip-nav">Skip to main content</a>
+  <div class="scroll-progress" id="scrollProgressBar"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-mark">
+          <img src="/public/adpulse_Logo.png" alt="Adpulse Industries" class="nav-logo-img" />
+        </span>
+        <span class="logo-copy">
+          <span class="logo-text">Adpulse <span class="logo-accent">Industries</span></span>
+        </span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li class="drawer-brand-item">
+          <a href="index.html" class="drawer-brand" aria-label="Adpulse Industries home">
+            <img src="/public/adpulse_Logo.png" alt="" class="drawer-brand-img" />
+            <span class="drawer-brand-copy">
+              <strong>Adpulse Industries</strong>
+              <small>Kenya-built websites, apps, and automation systems for ambitious teams.</small>
+            </span>
+          </a>
+        </li>
+        <li class="nav-primary-item"><a href="index.html#services" class="nav-link">Services</a></li>
+        <li class="nav-primary-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-primary-item"><a href="index.html#portfolio" class="nav-link">Work</a></li>
+        <li class="nav-primary-item"><a href="index.html#pricing" class="nav-link">Pricing</a></li>
+        <li class="nav-cta-item"><a href="index.html#contact" class="nav-cta">Start a Project</a></li>
+        <li class="nav-app-item">
+          <button onclick="openAppModal()" class="nav-app-drawer-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+            Get the App
+          </button>
+        </li>
+      </ul>
+      <button onclick="openAppModal()" class="nav-app-btn" aria-label="Get the App">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+        Get the App
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div id="navOverlay" class="nav-overlay"></div>
+
+  <!-- ===== ARTICLE HERO ===== -->
+  <section class="article-hero">
+    <div class="article-hero-orb article-hero-orb-1"></div>
+    <div class="article-hero-orb article-hero-orb-2"></div>
+    <div class="container">
+      <div class="article-hero-inner reveal">
+        <div class="article-breadcrumb">
+          <a href="index.html">Home</a>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          <a href="index.html#blog">Knowledge Hub</a>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          <span>Web Design</span>
+        </div>
+        <div class="article-cat-pill article-cat-pill-red">Web Design &amp; Performance</div>
+        <h1>5 Signs Your Business Website Is <span class="gradient-text">Costing You Clients</span></h1>
+        <div class="article-meta-row">
+          <div class="article-author-chip">
+            <div class="article-author-avatar">FO</div>
+            <div>
+              <span class="article-author-name">Frank Omondi</span>
+              <span class="article-author-role">CEO, Adpulse Industries</span>
+            </div>
+          </div>
+          <div class="article-meta-stats">
+            <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mar 3, 2026</span>
+            <span class="article-dot">&bull;</span>
+            <span>4 min read</span>
+            <span class="article-dot">&bull;</span>
+            <span>Web Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ARTICLE BODY ===== -->
+  <main id="article-content" class="article-body-section">
+    <div class="container">
+      <div class="article-layout">
+
+        <!-- Main Content -->
+        <article class="article-main reveal">
+
+          <div class="article-lead">
+            <p>Your website works 24 hours a day, 7 days a week on your behalf. It is the first impression for most potential clients, the place where trust is built or broken — often within the first three seconds of a visit. A website that fails at this job is not neutral. It is actively costing you clients and revenue every single day.</p>
+            <p>The problem? Most business owners do not know their website is underperforming. They built it once, paid for it, and assumed the job was done. Meanwhile, competitors with better-performing sites are quietly winning the customers that should have been theirs.</p>
+          </div>
+
+          <div class="article-callout">
+            <div class="article-callout-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <p><strong>Sobering statistic:</strong> 88% of online consumers are less likely to return to a website after a bad experience. And 53% of mobile users abandon a site that takes more than 3 seconds to load. Your website may be leaking revenue right now.</p>
+          </div>
+
+          <h2>Sign #1: It Loads Slowly</h2>
+          <p>Speed is not a nice-to-have. It is a fundamental business metric. Google's own research shows that for every 1-second delay in mobile page load time, conversions fall by up to 20%. On mobile connections — which account for the majority of browsing across Kenya — this is especially brutal.</p>
+          <p>The signs of a slow site are sometimes obvious (you can feel the lag), but often the damage is invisible: visitors bounce before the page even finishes loading, and you never know they visited at all.</p>
+
+          <div class="article-highlight-box">
+            <span class="ahb-label">How to Check</span>
+            <p>Run your site through Google PageSpeed Insights (pagespeed.web.dev). If your score is below 70 on mobile, you have a measurable problem that is costing you traffic and conversions right now.</p>
+          </div>
+
+          <p><strong>Common causes:</strong> unoptimized images, cheap shared hosting, bloated WordPress plugins, no CDN, excessive JavaScript loading on page render.</p>
+          <p><strong>The fix:</strong> compress images, upgrade your hosting, remove unused plugins, and implement caching. For a full rebuild, a modern static site built with Next.js or similar can load in under 1 second globally.</p>
+
+          <h2>Sign #2: It Does Not Work on Mobile</h2>
+          <p>In Kenya, over 85% of internet traffic is mobile. If your website requires users to pinch-and-zoom, scroll horizontally, or squint at tiny text, you are delivering a frustrating experience to the vast majority of your visitors.</p>
+          <p>A non-responsive website is not just a UX problem — it is a Google ranking penalty. Since 2019, Google has used mobile-first indexing, meaning your site's mobile version is what determines your search ranking. A site that is not mobile-optimized will consistently rank lower than competitors that are.</p>
+
+          <ul class="article-list">
+            <li>Text that is too small to read without zooming</li>
+            <li>Buttons that are too close together to tap accurately</li>
+            <li>Content that overflows the screen horizontally</li>
+            <li>Forms that are difficult to fill in on a phone</li>
+            <li>Navigation menus that are unusable on small screens</li>
+          </ul>
+
+          <h2>Sign #3: There Is No Clear Call to Action</h2>
+          <p>A visitor lands on your site. They read about your services. They are interested. Then... what? If your website does not tell visitors explicitly what to do next — book a consultation, get a quote, call this number, WhatsApp us now — most of them will leave without taking any action.</p>
+          <p>This is one of the most common and expensive website mistakes we see. Business owners pour money into getting traffic through ads and social media, then send those visitors to a page with no clear path to conversion. The traffic investment becomes waste.</p>
+
+          <div class="article-callout article-callout-green">
+            <div class="article-callout-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p><strong>The rule of one:</strong> Every page of your website should have exactly one primary call to action. Not three options, not a menu of choices — one clear next step you want the visitor to take. Clarity converts. Confusion bounces.</p>
+          </div>
+
+          <h2>Sign #4: It Looks Outdated</h2>
+          <p>Design is trust. In a digital-first world, your website is your office, your reception desk, and your sales pitch all in one. A website that looks like it was built in 2015 — generic stock photos, cluttered layouts, dated typography, low contrast — signals to potential clients that your business may be similarly behind the times.</p>
+          <p>This is not vanity. It is psychology. Users make subconscious judgements about credibility within 50 milliseconds of landing on a page. A modern, professional, well-designed site communicates competence and trustworthiness before a single word is read.</p>
+
+          <div class="article-highlight-box article-highlight-box-purple">
+            <span class="ahb-label ahb-label-purple">Key Question</span>
+            <p>If a potential high-value client landed on your website right now, would it make them more or less likely to trust you with their business? Be honest.</p>
+          </div>
+
+          <h2>Sign #5: You Cannot Measure Anything</h2>
+          <p>If you have no analytics on your website, you are flying blind. You do not know how many people visit, which pages they look at, where they come from, or at which point they leave. Without this data, you cannot make informed decisions about what to improve.</p>
+          <p>Even more valuable: conversion tracking. This lets you know exactly which marketing channels — Google Ads, social media, WhatsApp campaigns — are actually generating leads and clients, so you can invest more in what works and stop wasting money on what doesn't.</p>
+
+          <ul class="article-list">
+            <li><strong>Google Analytics 4</strong> — free, comprehensive traffic data</li>
+            <li><strong>Google Search Console</strong> — free, essential for SEO visibility</li>
+            <li><strong>Hotjar or Microsoft Clarity</strong> — free heatmaps showing exactly where users click and where they abandon</li>
+            <li><strong>Conversion tracking via Google Tag Manager</strong> — measure form submissions, button clicks, phone calls</li>
+          </ul>
+
+          <h2>Quick Wins vs. Full Redesign: Which Do You Need?</h2>
+
+          <div class="article-steps">
+            <div class="article-step">
+              <div class="as-num as-num-green">✓</div>
+              <div class="as-body">
+                <h3>Quick Wins (1–2 weeks)</h3>
+                <p>If your site structure is sound but lacks analytics, has slow images, or is missing clear CTAs — these can often be fixed quickly without a full rebuild. Install GA4, compress images, add WhatsApp and contact CTAs to key pages.</p>
+              </div>
+            </div>
+            <div class="article-step">
+              <div class="as-num as-num-red">↑</div>
+              <div class="as-body">
+                <h3>Full Redesign (4–6 weeks)</h3>
+                <p>If the site is not mobile-responsive, is visually outdated, has structural SEO problems, or was built on a platform that limits performance — a complete rebuild is usually faster and cheaper in the long run than patching a broken foundation.</p>
+              </div>
+            </div>
+          </div>
+
+          <h2>What to Do Next</h2>
+          <p>Start with an honest audit. Open your site on your phone. Time how long it takes to load. Try to complete your own contact form. Ask a friend who has never seen your site to navigate to your services page without any help from you and observe what they do.</p>
+          <p>If you identify problems you cannot fix yourself, that is exactly what the Adpulse team is here for. We have rebuilt dozens of Kenyan business websites — not just making them look better, but making them convert visitors into paying clients.</p>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="article-sidebar reveal" data-delay="100">
+          <div class="sidebar-card">
+            <h4>In This Article</h4>
+            <nav class="article-toc">
+              <a href="#" class="toc-link">Sign 1: It Loads Slowly</a>
+              <a href="#" class="toc-link">Sign 2: Not Mobile-Friendly</a>
+              <a href="#" class="toc-link">Sign 3: No Clear Call to Action</a>
+              <a href="#" class="toc-link">Sign 4: Looks Outdated</a>
+              <a href="#" class="toc-link">Sign 5: No Analytics</a>
+              <a href="#" class="toc-link">Quick Wins vs. Full Redesign</a>
+            </nav>
+          </div>
+
+          <div class="sidebar-card sidebar-cta-card">
+            <div class="sidebar-cta-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h4>Free Website Audit</h4>
+            <p>We'll review your site and send you a detailed report identifying exactly what's costing you clients.</p>
+            <a href="index.html#contact" class="btn-primary sidebar-cta-btn">Get Free Audit</a>
+          </div>
+
+          <div class="sidebar-card">
+            <h4>Related Articles</h4>
+            <div class="sidebar-related">
+              <a href="article-automation.html" class="sidebar-related-link">
+                <span>How SMEs Are Saving 20+ Hours/Week</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="article-crm.html" class="sidebar-related-link">
+                <span>Why Your Team Needs a Custom CRM</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== ARTICLE CTA ===== -->
+  <section class="article-cta-section">
+    <div class="container">
+      <div class="article-cta reveal">
+        <div class="article-cta-orb-1"></div>
+        <div class="article-cta-orb-2"></div>
+        <div class="article-cta-inner">
+          <div class="article-cta-badge">
+            <span class="badge-pulse"></span>
+            Available for New Projects
+          </div>
+          <h2>Let's Fix Your Website.</h2>
+          <p>Get a free, no-obligation audit of your current site and a clear plan to turn it into your best-performing sales tool.</p>
+          <div class="article-cta-actions">
+            <a href="index.html#contact" class="btn-primary btn-lg">
+              Request Free Audit
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="index.html#portfolio" class="btn-secondary btn-lg">See Our Work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="footer-logo">
+            <img src="/public/adpulse_Logo.png" alt="Adpulse Industries" class="footer-logo-img" />
+            <span>Adpulse <strong>Industries</strong></span>
+          </a>
+          <p class="footer-tagline">Kenya-built digital solutions that deliver real results for ambitious businesses.</p>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/adpulse-industries" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://www.instagram.com/ADpulse_Ind" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@adpulse_ind01" target="_blank" rel="noopener" class="social-btn" aria-label="TikTok">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34l-.04-8.85a8.26 8.26 0 004.84 1.54V4.56a4.85 4.85 0 01-1.03.13z"/></svg>
+            </a>
+            <a href="https://www.x.com/@adpulselimited" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter/X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="index.html#services">Website Design</a></li>
+            <li><a href="index.html#services">App Development</a></li>
+            <li><a href="index.html#services">CRM Systems</a></li>
+            <li><a href="index.html#services">Process Automation</a></li>
+            <li><a href="index.html#services">Email Automation</a></li>
+            <li><a href="index.html#services">ICT Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#process">Our Process</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="index.html#testimonials">Testimonials</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <ul>
+            <li>Nairobi, Kenya</li>
+            <li>adpulseindustries@gmail.com</li>
+            <li>+254 769 968 696</li>
+            <li>Mon &ndash; Fri, 8am &ndash; 6pm EAT</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Adpulse Industries. All rights reserved.</p>
+        <p>Crafted with passion in Kenya &#127472;&#127466; &nbsp;|&nbsp; <a href="#" class="footer-legal-link" onclick="return false;">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" class="footer-legal-link" onclick="return false;">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== APP DOWNLOAD MODAL ===== -->
+  <div class="app-modal" id="appModal" hidden role="dialog" aria-modal="true" aria-label="Get the Adpulse App">
+    <div class="app-modal-overlay" onclick="closeAppModal()"></div>
+    <div class="app-modal-box">
+      <button class="app-modal-close" onclick="closeAppModal()" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      <div class="app-modal-logo"><img src="/public/adpulse_Logo.png" alt="Adpulse" /></div>
+      <h2>Get the Adpulse App</h2>
+      <p>Access our services, book consultations, and stay updated — all from your phone.</p>
+      <div class="app-download-option" id="appAndroidOption">
+        <div class="ado-icon ado-icon-android"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.341l1.763 3.052a.5.5 0 01-.866.5l-1.785-3.09A7.963 7.963 0 0112 16.5a7.963 7.963 0 01-4.635-1.697L5.58 18.893a.5.5 0 01-.866-.5l1.763-3.052A7.968 7.968 0 014 9h16a7.968 7.968 0 01-2.477 6.341zM8.5 11a1 1 0 100 2 1 1 0 000-2zm7 0a1 1 0 100 2 1 1 0 000-2zM6.95 5.638l-1.242-2.15a.5.5 0 01.866-.5l1.26 2.181A7.977 7.977 0 0112 4.5c1.538 0 2.976.433 4.199 1.187l1.235-2.137a.5.5 0 11.866.5L17.05 5.638A7.972 7.972 0 0120 9H4a7.972 7.972 0 012.95-3.362z"/></svg></div>
+        <div class="ado-body"><strong>Android — Download APK</strong><span>Direct install on your Android device</span></div>
+        <a href="/public/adpulse.apk" download="Adpulse.apk" class="ado-btn ado-btn-android"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a>
+      </div>
+      <div class="app-download-option" id="appPwaOption">
+        <div class="ado-icon ado-icon-pwa"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <div class="ado-body"><strong>Install as App</strong><span>Add to your home screen — works offline</span></div>
+        <button class="ado-btn ado-btn-pwa" id="pwaInstallBtn" onclick="triggerPwaInstall()">Install</button>
+      </div>
+      <div class="app-ios-note" id="appIosNote" hidden>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>On iPhone: tap the <strong>Share</strong> button in Safari, then <strong>"Add to Home Screen"</strong></span>
+      </div>
+      <div class="app-modal-footer"><span>Version 1.0 &nbsp;&bull;&nbsp; Free &nbsp;&bull;&nbsp; Kenya-built</span></div>
+    </div>
+  </div>
+
+  <script src="js/main.js?v=20260314"></script>
+  <script>
+    (function() {
+      const bar = document.getElementById('scrollProgressBar');
+      if (!bar) return;
+      window.addEventListener('scroll', () => {
+        const s = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+        bar.style.width = Math.min((window.scrollY / s) * 100, 100) + '%';
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

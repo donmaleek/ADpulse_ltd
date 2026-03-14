@@ -27,6 +27,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/public/adpulse_Logo.png" />
   <link rel="apple-touch-icon" href="/public/adpulse_Logo.png" />
+  <link rel="manifest" href="/manifest.json" />
   <title>Adpulse Industries | IT Support &amp; Software Automation | Kenya</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -116,13 +117,13 @@
         <li class="nav-primary-item"><a href="#pricing" class="nav-link">Pricing</a></li>
         <li class="nav-cta-item"><a href="#contact" class="nav-cta">Start a Project</a></li>
         <li class="nav-app-item">
-          <a href="#contact" class="nav-app-drawer-btn">
+          <button onclick="openAppModal()" class="nav-app-drawer-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
             Get the App
-          </a>
+          </button>
         </li>
       </ul>
-      <a href="#contact" class="nav-app-btn" aria-label="Get the App">
+      <button onclick="openAppModal()" class="nav-app-btn" aria-label="Get the App">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
         Get the App
       </a>
@@ -733,7 +734,7 @@
               <li>Real case study: 20+ hours saved per week</li>
               <li>How to get started for under KES 50,000</li>
             </ul>
-            <a href="#contact" class="blog-link">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="article-automation.html" class="blog-link">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
         </div>
 
@@ -780,7 +781,7 @@
               <li>How to measure your site's real performance</li>
               <li>Quick wins vs. full redesign — which you need</li>
             </ul>
-            <a href="#contact" class="blog-link">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="article-website.html" class="blog-link">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
         </div>
 
@@ -827,7 +828,7 @@
               <li>3 CRM features that actually drive sales</li>
               <li>How we built one for a Mombasa firm in 6 weeks</li>
             </ul>
-            <a href="#contact" class="blog-link">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="article-crm.html" class="blog-link">Read Article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
         </div>
 
@@ -1853,6 +1854,60 @@
         </div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- ===== APP DOWNLOAD MODAL ===== -->
+  <div class="app-modal" id="appModal" hidden role="dialog" aria-modal="true" aria-label="Get the Adpulse App">
+    <div class="app-modal-overlay" onclick="closeAppModal()"></div>
+    <div class="app-modal-box">
+      <button class="app-modal-close" onclick="closeAppModal()" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="app-modal-logo">
+        <img src="/public/adpulse_Logo.png" alt="Adpulse" />
+      </div>
+      <h2>Get the Adpulse App</h2>
+      <p>Access our services, book consultations, and stay updated — all from your phone.</p>
+
+      <!-- Android APK download -->
+      <div class="app-download-option" id="appAndroidOption">
+        <div class="ado-icon ado-icon-android">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.341l1.763 3.052a.5.5 0 01-.866.5l-1.785-3.09A7.963 7.963 0 0112 16.5a7.963 7.963 0 01-4.635-1.697L5.58 18.893a.5.5 0 01-.866-.5l1.763-3.052A7.968 7.968 0 014 9h16a7.968 7.968 0 01-2.477 6.341zM8.5 11a1 1 0 100 2 1 1 0 000-2zm7 0a1 1 0 100 2 1 1 0 000-2zM6.95 5.638l-1.242-2.15a.5.5 0 01.866-.5l1.26 2.181A7.977 7.977 0 0112 4.5c1.538 0 2.976.433 4.199 1.187l1.235-2.137a.5.5 0 11.866.5L17.05 5.638A7.972 7.972 0 0120 9H4a7.972 7.972 0 012.95-3.362z"/></svg>
+        </div>
+        <div class="ado-body">
+          <strong>Android — Download APK</strong>
+          <span>Direct install on your Android device</span>
+        </div>
+        <a href="/public/adpulse.apk" download="Adpulse.apk" class="ado-btn ado-btn-android" id="apkDownloadBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+
+      <!-- PWA install -->
+      <div class="app-download-option" id="appPwaOption">
+        <div class="ado-icon ado-icon-pwa">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <div class="ado-body">
+          <strong>Install as App</strong>
+          <span>Add to your home screen — works offline</span>
+        </div>
+        <button class="ado-btn ado-btn-pwa" id="pwaInstallBtn" onclick="triggerPwaInstall()">
+          Install
+        </button>
+      </div>
+
+      <!-- iOS instructions (shown only on iOS) -->
+      <div class="app-ios-note" id="appIosNote" hidden>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>On iPhone: tap the <strong>Share</strong> button in Safari, then <strong>"Add to Home Screen"</strong></span>
+      </div>
+
+      <div class="app-modal-footer">
+        <span>Version 1.0 &nbsp;&bull;&nbsp; Free &nbsp;&bull;&nbsp; Kenya-built</span>
+      </div>
     </div>
   </div>
 

@@ -845,7 +845,78 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 })();
 
 /* ============================================================
-   16. CURSOR GLOW (desktop only)
+   16. PWA / APP MODAL
+   ============================================================ */
+(function initAppModal() {
+  let deferredPrompt = null;
+
+  // Register service worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    });
+  }
+
+  // Capture the install prompt before the browser dismisses it
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredPrompt = e;
+    // Show the install option in the modal
+    const pwaOption = document.getElementById('appPwaOption');
+    if (pwaOption) pwaOption.hidden = false;
+  });
+
+  window.openAppModal = function() {
+    const modal = document.getElementById('appModal');
+    if (!modal) return;
+
+    const pwaOption    = document.getElementById('appPwaOption');
+    const androidOption = document.getElementById('appAndroidOption');
+    const iosNote      = document.getElementById('appIosNote');
+
+    // Detect iOS
+    const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    // Detect Android
+    const isAndroid = /android/i.test(navigator.userAgent);
+
+    // Show PWA option only if prompt available or not iOS
+    if (pwaOption) pwaOption.hidden = !deferredPrompt && !isAndroid;
+    // Show APK option for Android or unknown
+    if (androidOption) androidOption.hidden = isIos;
+    // Show iOS note
+    if (iosNote) iosNote.hidden = !isIos;
+
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeAppModal = function() {
+    const modal = document.getElementById('appModal');
+    if (!modal) return;
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  };
+
+  window.triggerPwaInstall = function() {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(choice => {
+      deferredPrompt = null;
+      if (choice.outcome === 'accepted') {
+        const btn = document.getElementById('pwaInstallBtn');
+        if (btn) { btn.textContent = 'Installed!'; btn.disabled = true; }
+      }
+    });
+  };
+
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') window.closeAppModal && window.closeAppModal();
+  });
+})();
+
+/* ============================================================
+   17. CURSOR GLOW (desktop only)
    ============================================================ */
 (function initCursorGlow() {
   if (window.matchMedia('(hover: none)').matches) return;

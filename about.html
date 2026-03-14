@@ -9,12 +9,13 @@
   <meta name="theme-color" content="#060D1F" />
   <link rel="canonical" href="https://adpulse-ltd.vercel.app/about" />
   <meta property="og:title" content="About Adpulse Industries | Our Team & Story" />
-  <meta property="og:description" content="Meet Frank Omondi (CEO), Kefa (CFO), and Mathias Alfred (CTO) — the leadership team behind Adpulse Industries." />
+  <meta property="og:description" content="Meet Frank Omondi (CEO), Kepha Mobe (CFO), and Mathias Alfred (CTO) — the leadership team behind Adpulse Industries." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://adpulse-ltd.vercel.app/about" />
   <meta property="og:image" content="https://adpulse-ltd.vercel.app/public/adpulse_Logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" href="/public/adpulse_Logo.png" />
+  <link rel="manifest" href="/manifest.json" />
   <title>About Us | Adpulse Industries</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -61,16 +62,16 @@
         <li class="nav-primary-item"><a href="index.html#pricing" class="nav-link">Pricing</a></li>
         <li class="nav-cta-item"><a href="index.html#contact" class="nav-cta">Start a Project</a></li>
         <li class="nav-app-item">
-          <a href="index.html#contact" class="nav-app-drawer-btn">
+          <button onclick="openAppModal()" class="nav-app-drawer-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
             Get the App
-          </a>
+          </button>
         </li>
       </ul>
-      <a href="index.html#contact" class="nav-app-btn" aria-label="Get the App">
+      <button onclick="openAppModal()" class="nav-app-btn" aria-label="Get the App">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
         Get the App
-      </a>
+      </button>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -175,7 +176,7 @@
           <div class="team-card-inner">
             <div class="team-avatar-wrap">
               <div class="team-avatar-img-wrap">
-                <img src="/public/omondi-profile.jpeg" alt="Frank Omondi" class="team-photo" />
+                <img src="/public/omondi-profile.png" alt="Frank Omondi" class="team-photo" />
                 <div class="avatar-ring"></div>
               </div>
               <div class="team-role-badge">CEO</div>
@@ -188,11 +189,8 @@
                 &ldquo;We don't just build software — we build competitive advantages.&rdquo;
               </div>
               <div class="team-socials">
-                <a href="https://www.linkedin.com/in/adpulse-limited-6601753b7" target="_blank" rel="noopener" class="team-social-link" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/frank-omondi-954731216/" target="_blank" rel="noopener" class="team-social-link" aria-label="LinkedIn">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-                </a>
-                <a href="https://www.x.com/@adpulselimited" target="_blank" rel="noopener" class="team-social-link" aria-label="X / Twitter">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
               </div>
             </div>
@@ -203,22 +201,21 @@
         <div class="team-card reveal" data-delay="150">
           <div class="team-card-inner">
             <div class="team-avatar-wrap">
-              <!-- Replace with: <img src="/public/kefa.jpg" alt="Kefa" class="team-photo" /> -->
-              <div class="team-avatar team-avatar-cfo" aria-label="Kefa">
-                <span>K</span>
+              <div class="team-avatar-img-wrap">
+                <img src="/public/kepha-profile.png" alt="Kepha Mobe" class="team-photo" />
                 <div class="avatar-ring"></div>
               </div>
               <div class="team-role-badge">CFO</div>
             </div>
             <div class="team-info">
-              <h3>Kefa</h3>
+              <h3>Kepha Mobe</h3>
               <p class="team-title">Chief Financial Officer</p>
-              <p class="team-bio">Kefa brings sharp financial acumen and strategic discipline to every decision at Adpulse. From structuring client contracts to ensuring sustainable growth, he keeps the business financially sound while enabling bold ambition.</p>
+              <p class="team-bio">Kepha brings sharp financial acumen and strategic discipline to every decision at Adpulse. From structuring client contracts to ensuring sustainable growth, he keeps the business financially sound while enabling bold ambition.</p>
               <div class="team-quote">
                 &ldquo;Financial clarity is the foundation of every great technology investment.&rdquo;
               </div>
               <div class="team-socials">
-                <a href="https://www.linkedin.com/in/adpulse-limited-6601753b7" target="_blank" rel="noopener" class="team-social-link" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/kepha-mobe-809834294/" target="_blank" rel="noopener" class="team-social-link" aria-label="LinkedIn">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
               </div>
@@ -231,7 +228,7 @@
           <div class="team-card-inner">
             <div class="team-avatar-wrap">
               <div class="team-avatar-img-wrap">
-                <img src="/public/mathias-profile.jpg" alt="Mathias Alfred" class="team-photo" />
+                <img src="/public/mathias-profile.png" alt="Mathias Alfred" class="team-photo" />
                 <div class="avatar-ring"></div>
               </div>
               <div class="team-role-badge">CTO</div>
@@ -244,7 +241,7 @@
                 &ldquo;Great technology is invisible — it just works, flawlessly, every time.&rdquo;
               </div>
               <div class="team-socials">
-                <a href="https://www.linkedin.com/in/adpulse-limited-6601753b7" target="_blank" rel="noopener" class="team-social-link" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/mathiasmramba/" target="_blank" rel="noopener" class="team-social-link" aria-label="LinkedIn">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
                 <a href="https://github.com/donmaleek" target="_blank" rel="noopener" class="team-social-link" aria-label="GitHub">
@@ -257,10 +254,6 @@
 
       </div>
 
-      <p class="team-photo-note">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Kefa's photo coming soon — drop it in <code>public/</code> as <code>kefa-profile.jpg</code> to complete the team.
-      </p>
     </div>
   </section>
 
@@ -386,6 +379,34 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===== APP DOWNLOAD MODAL ===== -->
+  <div class="app-modal" id="appModal" hidden role="dialog" aria-modal="true" aria-label="Get the Adpulse App">
+    <div class="app-modal-overlay" onclick="closeAppModal()"></div>
+    <div class="app-modal-box">
+      <button class="app-modal-close" onclick="closeAppModal()" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="app-modal-logo"><img src="/public/adpulse_Logo.png" alt="Adpulse" /></div>
+      <h2>Get the Adpulse App</h2>
+      <p>Access our services, book consultations, and stay updated — all from your phone.</p>
+      <div class="app-download-option" id="appAndroidOption">
+        <div class="ado-icon ado-icon-android"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.341l1.763 3.052a.5.5 0 01-.866.5l-1.785-3.09A7.963 7.963 0 0112 16.5a7.963 7.963 0 01-4.635-1.697L5.58 18.893a.5.5 0 01-.866-.5l1.763-3.052A7.968 7.968 0 014 9h16a7.968 7.968 0 01-2.477 6.341zM8.5 11a1 1 0 100 2 1 1 0 000-2zm7 0a1 1 0 100 2 1 1 0 000-2zM6.95 5.638l-1.242-2.15a.5.5 0 01.866-.5l1.26 2.181A7.977 7.977 0 0112 4.5c1.538 0 2.976.433 4.199 1.187l1.235-2.137a.5.5 0 11.866.5L17.05 5.638A7.972 7.972 0 0120 9H4a7.972 7.972 0 012.95-3.362z"/></svg></div>
+        <div class="ado-body"><strong>Android — Download APK</strong><span>Direct install on your Android device</span></div>
+        <a href="/public/adpulse.apk" download="Adpulse.apk" class="ado-btn ado-btn-android"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a>
+      </div>
+      <div class="app-download-option" id="appPwaOption">
+        <div class="ado-icon ado-icon-pwa"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <div class="ado-body"><strong>Install as App</strong><span>Add to your home screen — works offline</span></div>
+        <button class="ado-btn ado-btn-pwa" id="pwaInstallBtn" onclick="triggerPwaInstall()">Install</button>
+      </div>
+      <div class="app-ios-note" id="appIosNote" hidden>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>On iPhone: tap the <strong>Share</strong> button in Safari, then <strong>"Add to Home Screen"</strong></span>
+      </div>
+      <div class="app-modal-footer"><span>Version 1.0 &nbsp;&bull;&nbsp; Free &nbsp;&bull;&nbsp; Kenya-built</span></div>
+    </div>
+  </div>
 
   <script src="js/main.js?v=20260314"></script>
   <script>

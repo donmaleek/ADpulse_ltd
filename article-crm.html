@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Why your sales team needs a custom CRM, not a generic one. A true cost breakdown, the 3 features that actually drive sales, and how we built one for a Mombasa firm in 6 weeks." />
+  <meta name="author" content="Adpulse Industries" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#060D1F" />
+  <link rel="canonical" href="https://adpulse-ltd.vercel.app/article-crm" />
+  <meta property="og:title" content="Why Your Sales Team Needs a Custom CRM (Not a Generic One)" />
+  <meta property="og:description" content="Generic CRMs are expensive and over-engineered. Learn why a custom CRM tailored to your workflow outperforms them every time." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://adpulse-ltd.vercel.app/article-crm" />
+  <meta property="og:image" content="https://adpulse-ltd.vercel.app/public/adpulse_Logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="/public/adpulse_Logo.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <title>Why Your Sales Team Needs a Custom CRM | Adpulse Industries</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=20260314" />
+  <link rel="stylesheet" href="css/article.css?v=20260314" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNDEQRQT6C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HNDEQRQT6C');
+  </script>
+</head>
+<body>
+  <a href="#article-content" class="skip-nav">Skip to main content</a>
+  <div class="scroll-progress" id="scrollProgressBar"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="nav-logo-mark">
+          <img src="/public/adpulse_Logo.png" alt="Adpulse Industries" class="nav-logo-img" />
+        </span>
+        <span class="logo-copy">
+          <span class="logo-text">Adpulse <span class="logo-accent">Industries</span></span>
+        </span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li class="drawer-brand-item">
+          <a href="index.html" class="drawer-brand" aria-label="Adpulse Industries home">
+            <img src="/public/adpulse_Logo.png" alt="" class="drawer-brand-img" />
+            <span class="drawer-brand-copy">
+              <strong>Adpulse Industries</strong>
+              <small>Kenya-built websites, apps, and automation systems for ambitious teams.</small>
+            </span>
+          </a>
+        </li>
+        <li class="nav-primary-item"><a href="index.html#services" class="nav-link">Services</a></li>
+        <li class="nav-primary-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-primary-item"><a href="index.html#portfolio" class="nav-link">Work</a></li>
+        <li class="nav-primary-item"><a href="index.html#pricing" class="nav-link">Pricing</a></li>
+        <li class="nav-cta-item"><a href="index.html#contact" class="nav-cta">Start a Project</a></li>
+        <li class="nav-app-item">
+          <button onclick="openAppModal()" class="nav-app-drawer-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+            Get the App
+          </button>
+        </li>
+      </ul>
+      <button onclick="openAppModal()" class="nav-app-btn" aria-label="Get the App">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+        Get the App
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div id="navOverlay" class="nav-overlay"></div>
+
+  <!-- ===== ARTICLE HERO ===== -->
+  <section class="article-hero">
+    <div class="article-hero-orb article-hero-orb-1"></div>
+    <div class="article-hero-orb article-hero-orb-2"></div>
+    <div class="container">
+      <div class="article-hero-inner reveal">
+        <div class="article-breadcrumb">
+          <a href="index.html">Home</a>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          <a href="index.html#blog">Knowledge Hub</a>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          <span>CRM &amp; Sales</span>
+        </div>
+        <div class="article-cat-pill article-cat-pill-green">CRM &amp; Sales</div>
+        <h1>Why Your Sales Team Needs a <span class="gradient-text">Custom CRM</span> (Not a Generic One)</h1>
+        <div class="article-meta-row">
+          <div class="article-author-chip">
+            <div class="article-author-avatar article-author-avatar-green">KM</div>
+            <div>
+              <span class="article-author-name">Kepha Mobe</span>
+              <span class="article-author-role">CFO, Adpulse Industries</span>
+            </div>
+          </div>
+          <div class="article-meta-stats">
+            <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Feb 24, 2026</span>
+            <span class="article-dot">&bull;</span>
+            <span>5 min read</span>
+            <span class="article-dot">&bull;</span>
+            <span>CRM &amp; Sales</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ARTICLE BODY ===== -->
+  <main id="article-content" class="article-body-section">
+    <div class="container">
+      <div class="article-layout">
+
+        <!-- Main Content -->
+        <article class="article-main reveal">
+
+          <div class="article-lead">
+            <p>James manages a team of seven salespeople for a mid-sized B2B services company in Nairobi. He has tried two different off-the-shelf CRMs in the past three years. Both failed to stick. His team reverted to WhatsApp groups and spreadsheets within a month of each rollout — not because the tools were bad, but because they were built for someone else's business.</p>
+            <p>This is one of the most common and most costly technology mistakes Kenyan businesses make: forcing their people to adapt to generic software, rather than building software that fits how they actually work.</p>
+          </div>
+
+          <div class="article-callout">
+            <div class="article-callout-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <p><strong>The core problem:</strong> Generic CRMs are designed to serve thousands of different businesses. Custom CRMs are designed to serve one — yours. The difference in adoption, performance, and ROI is not marginal. It is transformational.</p>
+          </div>
+
+          <h2>The True Cost of a Generic CRM</h2>
+          <p>At first glance, a subscription to Salesforce, HubSpot, or Zoho appears affordable. But the true cost calculation is far more complex than the monthly fee.</p>
+
+          <div class="article-tools-grid">
+            <div class="article-tool-card article-tool-card-danger">
+              <div class="atc-icon atc-icon-red">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+              </div>
+              <strong>Subscription Costs</strong>
+              <p>Enterprise CRM plans run $25–$150 per user per month. For a team of 7, that's $2,100–$12,600 every year — in perpetuity, with no equity in the system.</p>
+            </div>
+            <div class="article-tool-card article-tool-card-danger">
+              <div class="atc-icon atc-icon-red">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <strong>Implementation Time</strong>
+              <p>Complex CRMs like Salesforce can take 3–6 months to configure properly. That's 3–6 months of partial productivity while your team learns an alien system.</p>
+            </div>
+            <div class="article-tool-card article-tool-card-danger">
+              <div class="atc-icon atc-icon-red">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <strong>Low Adoption Rate</strong>
+              <p>Industry data shows that 50–70% of CRM implementations fail due to low user adoption. Teams fall back to familiar habits when the tool doesn't match their workflow.</p>
+            </div>
+          </div>
+
+          <p>The hidden cost of failed adoption is the most expensive: wasted subscription fees, lost productivity during rollout, and the organizational fatigue that makes the next tool change even harder to execute.</p>
+
+          <h2>What a Custom CRM Actually Looks Like</h2>
+          <p>A custom CRM is not necessarily more complex than an off-the-shelf solution — in fact, it is almost always simpler, because it includes only what your team actually uses, nothing more.</p>
+          <p>Here is what we built for a Mombasa-based professional services firm in 6 weeks:</p>
+
+          <div class="article-highlight-box">
+            <span class="ahb-label">Case Study: Mombasa Professional Services Firm</span>
+            <p>The client had a 5-person sales team managing 200+ active prospects across WhatsApp, email, and phone. Deals were being lost because follow-ups fell through the cracks. We built a custom CRM in 6 weeks that included a visual pipeline board, WhatsApp integration for one-click follow-up logging, automated reminder triggers, and a real-time management dashboard. Adoption was immediate — because the tool matched how the team already worked. Within 90 days, deal close rate improved by 31%.</p>
+          </div>
+
+          <h2>3 CRM Features That Actually Drive Sales</h2>
+          <p>Based on our work across dozens of Kenyan businesses, here are the three CRM capabilities that consistently move the revenue needle — and that most generic tools either overcomplicate or bury under layers of unused features.</p>
+
+          <h3>1. A Visual Pipeline That Matches Your Sales Process</h3>
+          <p>Every business has a unique sales process. A consultancy closes differently from a product distributor, which closes differently from a real estate agent. A good CRM mirrors your actual stages — not a generic template — so salespeople can see at a glance where every deal stands and what the next action should be.</p>
+          <p>When the pipeline reflects reality, salespeople use it. When it doesn't, they don't. It is that simple.</p>
+
+          <h3>2. Automated Follow-Up Reminders</h3>
+          <p>The number one reason deals die in Kenyan SMEs is not price objections or competition — it is delayed follow-up. A prospect expresses interest, life gets busy, and three weeks later a competitor who stayed in touch wins the business.</p>
+          <p>A custom CRM triggers follow-up reminders automatically, based on rules you define: "If a prospect has not been contacted in 5 days, alert the assigned salesperson." This alone — implemented properly — can significantly increase close rates within the first quarter.</p>
+
+          <h3>3. A Management Dashboard That Shows What Matters</h3>
+          <p>Leadership needs real-time visibility without micromanaging. A custom dashboard gives founders and sales managers an instant read on pipeline value, activity levels per rep, conversion rates at each stage, and monthly revenue trajectory. No pulling reports, no waiting for Monday morning updates — the data is live.</p>
+
+          <div class="article-callout article-callout-green">
+            <div class="article-callout-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p><strong>The bottom line:</strong> The best CRM is the one your team actually uses. A custom-built system that fits your workflow will always outperform a powerful generic tool that your team resists using.</p>
+          </div>
+
+          <h2>Custom vs. Off-the-Shelf: A True Comparison</h2>
+
+          <div class="article-compare-table">
+            <div class="act-header">
+              <div class="act-col act-col-feature">Feature</div>
+              <div class="act-col act-col-generic">Generic CRM</div>
+              <div class="act-col act-col-custom">Custom CRM</div>
+            </div>
+            <div class="act-row">
+              <div class="act-col act-col-feature">Fits your workflow</div>
+              <div class="act-col act-col-generic act-bad">Partially — after configuration</div>
+              <div class="act-col act-col-custom act-good">Yes — built around it</div>
+            </div>
+            <div class="act-row">
+              <div class="act-col act-col-feature">Team adoption</div>
+              <div class="act-col act-col-generic act-bad">Often low (50–70% fail rate)</div>
+              <div class="act-col act-col-custom act-good">High — it matches how they work</div>
+            </div>
+            <div class="act-row">
+              <div class="act-col act-col-feature">Monthly cost</div>
+              <div class="act-col act-col-generic act-bad">$25–$150/user/month forever</div>
+              <div class="act-col act-col-custom act-good">One-time build, you own it</div>
+            </div>
+            <div class="act-row">
+              <div class="act-col act-col-feature">WhatsApp integration</div>
+              <div class="act-col act-col-generic act-bad">Limited or paid add-on</div>
+              <div class="act-col act-col-custom act-good">Built-in from day one</div>
+            </div>
+            <div class="act-row">
+              <div class="act-col act-col-feature">Features you actually use</div>
+              <div class="act-col act-col-generic act-bad">10–20% of what's there</div>
+              <div class="act-col act-col-custom act-good">100% — no clutter</div>
+            </div>
+            <div class="act-row">
+              <div class="act-col act-col-feature">Scale and ownership</div>
+              <div class="act-col act-col-generic act-bad">Vendor lock-in</div>
+              <div class="act-col act-col-custom act-good">You own the codebase</div>
+            </div>
+          </div>
+
+          <h2>When Does a Custom CRM Make Business Sense?</h2>
+          <p>A custom CRM is not the right choice for every business at every stage. Here is a simple framework to guide the decision:</p>
+
+          <div class="article-steps">
+            <div class="article-step">
+              <div class="as-num">→</div>
+              <div class="as-body">
+                <h3>You Have 3+ Active Salespeople</h3>
+                <p>At this point, a shared system for pipeline visibility and follow-up tracking becomes non-negotiable. Spreadsheets break down fast with multiple users.</p>
+              </div>
+            </div>
+            <div class="article-step">
+              <div class="as-num">→</div>
+              <div class="as-body">
+                <h3>Your Sales Process Is Unique</h3>
+                <p>If your sales cycle involves specific approval stages, custom quotation formats, local payment terms, or industry-specific terminology, a generic CRM will always feel like a mismatch.</p>
+              </div>
+            </div>
+            <div class="article-step">
+              <div class="as-num">→</div>
+              <div class="as-body">
+                <h3>You Are Paying for a CRM Your Team Doesn't Use</h3>
+                <p>This is the clearest signal. If you are spending money on a subscription that has poor adoption, the ROI of switching to a custom solution typically pays back within 12–18 months.</p>
+              </div>
+            </div>
+          </div>
+
+          <h2>How We Approach CRM Development at Adpulse</h2>
+          <p>We start with a process workshop — mapping your actual sales workflow, the touchpoints your team manages, and the data points leadership needs to see. Only then do we write a single line of code.</p>
+          <p>The result is a system that feels intuitive from day one, because it was designed around how your team already thinks and works. Not a foreign tool they have to adapt to — a tool that adapts to them.</p>
+          <p>Most of our CRM projects are live within 4–8 weeks, and we build on modern, scalable infrastructure so your system can grow alongside your business.</p>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="article-sidebar reveal" data-delay="100">
+          <div class="sidebar-card">
+            <h4>In This Article</h4>
+            <nav class="article-toc">
+              <a href="#" class="toc-link">The True Cost of Generic CRMs</a>
+              <a href="#" class="toc-link">What a Custom CRM Looks Like</a>
+              <a href="#" class="toc-link">3 Features That Drive Sales</a>
+              <a href="#" class="toc-link">Custom vs. Off-the-Shelf Comparison</a>
+              <a href="#" class="toc-link">When Does It Make Sense?</a>
+              <a href="#" class="toc-link">Our Approach</a>
+            </nav>
+          </div>
+
+          <div class="sidebar-card sidebar-cta-card sidebar-cta-card-green">
+            <div class="sidebar-cta-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <h4>Get a CRM Built for You</h4>
+            <p>Book a free 30-min process workshop. We'll map your sales workflow and show you exactly what a custom CRM for your team would look like.</p>
+            <a href="index.html#contact" class="btn-primary sidebar-cta-btn sidebar-cta-btn-green">Book Free Workshop</a>
+          </div>
+
+          <div class="sidebar-card">
+            <h4>Related Articles</h4>
+            <div class="sidebar-related">
+              <a href="article-automation.html" class="sidebar-related-link">
+                <span>How SMEs Are Saving 20+ Hours/Week</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="article-website.html" class="sidebar-related-link">
+                <span>5 Signs Your Website Is Costing You Clients</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== ARTICLE CTA ===== -->
+  <section class="article-cta-section">
+    <div class="container">
+      <div class="article-cta reveal">
+        <div class="article-cta-orb-1"></div>
+        <div class="article-cta-orb-2"></div>
+        <div class="article-cta-inner">
+          <div class="article-cta-badge">
+            <span class="badge-pulse"></span>
+            Available for New Projects
+          </div>
+          <h2>Ready for a CRM Your Team Will Actually Use?</h2>
+          <p>Let's map your sales process and build a system that fits it perfectly — delivered in 4–8 weeks.</p>
+          <div class="article-cta-actions">
+            <a href="index.html#contact" class="btn-primary btn-lg">
+              Start the Conversation
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="index.html#portfolio" class="btn-secondary btn-lg">See Our Work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="footer-logo">
+            <img src="/public/adpulse_Logo.png" alt="Adpulse Industries" class="footer-logo-img" />
+            <span>Adpulse <strong>Industries</strong></span>
+          </a>
+          <p class="footer-tagline">Kenya-built digital solutions that deliver real results for ambitious businesses.</p>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/adpulse-industries" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://www.instagram.com/ADpulse_Ind" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@adpulse_ind01" target="_blank" rel="noopener" class="social-btn" aria-label="TikTok">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34l-.04-8.85a8.26 8.26 0 004.84 1.54V4.56a4.85 4.85 0 01-1.03.13z"/></svg>
+            </a>
+            <a href="https://www.x.com/@adpulselimited" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter/X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="index.html#services">Website Design</a></li>
+            <li><a href="index.html#services">App Development</a></li>
+            <li><a href="index.html#services">CRM Systems</a></li>
+            <li><a href="index.html#services">Process Automation</a></li>
+            <li><a href="index.html#services">Email Automation</a></li>
+            <li><a href="index.html#services">ICT Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#process">Our Process</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="index.html#testimonials">Testimonials</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <ul>
+            <li>Nairobi, Kenya</li>
+            <li>adpulseindustries@gmail.com</li>
+            <li>+254 769 968 696</li>
+            <li>Mon &ndash; Fri, 8am &ndash; 6pm EAT</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Adpulse Industries. All rights reserved.</p>
+        <p>Crafted with passion in Kenya &#127472;&#127466; &nbsp;|&nbsp; <a href="#" class="footer-legal-link" onclick="return false;">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" class="footer-legal-link" onclick="return false;">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== APP DOWNLOAD MODAL ===== -->
+  <div class="app-modal" id="appModal" hidden role="dialog" aria-modal="true" aria-label="Get the Adpulse App">
+    <div class="app-modal-overlay" onclick="closeAppModal()"></div>
+    <div class="app-modal-box">
+      <button class="app-modal-close" onclick="closeAppModal()" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      <div class="app-modal-logo"><img src="/public/adpulse_Logo.png" alt="Adpulse" /></div>
+      <h2>Get the Adpulse App</h2>
+      <p>Access our services, book consultations, and stay updated — all from your phone.</p>
+      <div class="app-download-option" id="appAndroidOption">
+        <div class="ado-icon ado-icon-android"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.341l1.763 3.052a.5.5 0 01-.866.5l-1.785-3.09A7.963 7.963 0 0112 16.5a7.963 7.963 0 01-4.635-1.697L5.58 18.893a.5.5 0 01-.866-.5l1.763-3.052A7.968 7.968 0 014 9h16a7.968 7.968 0 01-2.477 6.341zM8.5 11a1 1 0 100 2 1 1 0 000-2zm7 0a1 1 0 100 2 1 1 0 000-2zM6.95 5.638l-1.242-2.15a.5.5 0 01.866-.5l1.26 2.181A7.977 7.977 0 0112 4.5c1.538 0 2.976.433 4.199 1.187l1.235-2.137a.5.5 0 11.866.5L17.05 5.638A7.972 7.972 0 0120 9H4a7.972 7.972 0 012.95-3.362z"/></svg></div>
+        <div class="ado-body"><strong>Android — Download APK</strong><span>Direct install on your Android device</span></div>
+        <a href="/public/adpulse.apk" download="Adpulse.apk" class="ado-btn ado-btn-android"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</a>
+      </div>
+      <div class="app-download-option" id="appPwaOption">
+        <div class="ado-icon ado-icon-pwa"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <div class="ado-body"><strong>Install as App</strong><span>Add to your home screen — works offline</span></div>
+        <button class="ado-btn ado-btn-pwa" id="pwaInstallBtn" onclick="triggerPwaInstall()">Install</button>
+      </div>
+      <div class="app-ios-note" id="appIosNote" hidden>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>On iPhone: tap the <strong>Share</strong> button in Safari, then <strong>"Add to Home Screen"</strong></span>
+      </div>
+      <div class="app-modal-footer"><span>Version 1.0 &nbsp;&bull;&nbsp; Free &nbsp;&bull;&nbsp; Kenya-built</span></div>
+    </div>
+  </div>
+
+  <script src="js/main.js?v=20260314"></script>
+  <script>
+    (function() {
+      const bar = document.getElementById('scrollProgressBar');
+      if (!bar) return;
+      window.addEventListener('scroll', () => {
+        const s = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+        bar.style.width = Math.min((window.scrollY / s) * 100, 100) + '%';
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>
