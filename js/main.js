@@ -857,12 +857,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
   }
 
-  // Capture the install prompt — call preventDefault() to suppress the
-  // browser's automatic mini-infobar so we control when prompt() fires.
+  // Store the event so our Install button can call prompt() later.
+  // Do NOT call e.preventDefault() — that suppresses Chrome's native
+  // mini-infobar and causes the "Banner not shown" console warning
+  // whenever the user leaves without installing.
   window.addEventListener('beforeinstallprompt', e => {
-    e.preventDefault();
     deferredPrompt = e;
-    // Only reveal the PWA install row when the browser confirms it's ready
+    // Reveal the PWA install row in our modal
     const pwaOption = document.getElementById('appPwaOption');
     if (pwaOption) pwaOption.hidden = false;
   });
