@@ -857,34 +857,37 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
   }
 
-  // Capture the install prompt before the browser dismisses it
+  // Capture the install prompt — call preventDefault() to suppress the
+  // browser's automatic mini-infobar so we control when prompt() fires.
   window.addEventListener('beforeinstallprompt', e => {
     e.preventDefault();
     deferredPrompt = e;
-    // Show the install option in the modal
+    // Only reveal the PWA install row when the browser confirms it's ready
     const pwaOption = document.getElementById('appPwaOption');
     if (pwaOption) pwaOption.hidden = false;
+  });
+
+  // Clean up after a successful install
+  window.addEventListener('appinstalled', () => {
+    deferredPrompt = null;
+    const pwaOption = document.getElementById('appPwaOption');
+    if (pwaOption) pwaOption.hidden = true;
   });
 
   window.openAppModal = function() {
     const modal = document.getElementById('appModal');
     if (!modal) return;
 
-    const pwaOption    = document.getElementById('appPwaOption');
     const androidOption = document.getElementById('appAndroidOption');
-    const iosNote      = document.getElementById('appIosNote');
+    const iosNote       = document.getElementById('appIosNote');
 
-    // Detect iOS
-    const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
-    // Detect Android
-    const isAndroid = /android/i.test(navigator.userAgent);
+    const isIos     = /iphone|ipad|ipod/i.test(navigator.userAgent);
 
-    // Show PWA option only if prompt available or not iOS
-    if (pwaOption) pwaOption.hidden = !deferredPrompt && !isAndroid;
-    // Show APK option for Android or unknown
+    // APK option: Android + unknown desktop; never on iOS
     if (androidOption) androidOption.hidden = isIos;
-    // Show iOS note
+    // iOS note: Safari share-sheet instructions
     if (iosNote) iosNote.hidden = !isIos;
+    // PWA row visibility is managed solely by beforeinstallprompt / appinstalled
 
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
@@ -897,16 +900,20 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     document.body.style.overflow = '';
   };
 
-  window.triggerPwaInstall = function() {
+  window.triggerPwaInstall = async function() {
     if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(choice => {
-      deferredPrompt = null;
-      if (choice.outcome === 'accepted') {
-        const btn = document.getElementById('pwaInstallBtn');
-        if (btn) { btn.textContent = 'Installed!'; btn.disabled = true; }
-      }
-    });
+    const prompt = deferredPrompt;
+    deferredPrompt = null; // consume immediately — can only call prompt() once
+    await prompt.prompt();
+    const { outcome } = await prompt.userChoice;
+    if (outcome === 'accepted') {
+      const btn = document.getElementById('pwaInstallBtn');
+      if (btn) { btn.textContent = 'Installed!'; btn.disabled = true; }
+      window.closeAppModal();
+    } else {
+      // User dismissed — restore so they can try again
+      deferredPrompt = prompt;
+    }
   };
 
   // Close on Escape
