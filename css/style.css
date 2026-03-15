@@ -310,7 +310,7 @@ button { cursor: pointer; font-family: inherit; }
 .nav-cta-item {
   margin-left: 8px;
 }
-/* App item only shows inside mobile drawer */
+/* App item hidden on desktop; revealed on mobile via media query */
 .nav-app-item { display: none; }
 
 .hamburger {
@@ -2002,9 +2002,9 @@ textarea { resize: vertical; min-height: 120px; }
 }
 .bmodal-close:hover { background: rgba(255,255,255,0.12); color: var(--text); }
 
-/* ---- Get the App nav button ---- */
+/* ---- Get the App nav button — mobile only ---- */
 .nav-app-btn {
-  display: inline-flex;
+  display: none; /* hidden on desktop; shown via ≤768px media query */
   align-items: center;
   gap: 6px;
   padding: 9px 18px;
@@ -2605,8 +2605,7 @@ textarea { resize: vertical; min-height: 120px; }
     border-bottom: none;
     padding: 0 0 4px;
   }
-  /* Keep Get the App in the top bar; hide duplicate inside drawer */
-  .nav-app-item { display: none; }
+  /* Show app download on mobile: top-bar button + full drawer item */
   .nav-app-btn  {
     display: inline-flex;
     padding: 8px 12px;
@@ -2614,6 +2613,7 @@ textarea { resize: vertical; min-height: 120px; }
     gap: 4px;
     flex-shrink: 0;
   }
+  .nav-app-item { display: block; }
 
   /* Hero */
   .hero-stats { flex-direction: column; gap: 0; padding: 16px; }
